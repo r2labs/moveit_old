@@ -1,0 +1,8 @@
+prefix=/home/john/moveit/install
+
+Name: moveit_setup_assistant
+Description: Description of moveit_setup_assistant
+Version: 0.6.0
+Cflags: -I/home/john/moveit/install/include
+Libs: -L/home/john/moveit/install/lib -lmoveit_setup_assistant_tools
+Requires: moveit_ros_planning moveit_ros_visualization
