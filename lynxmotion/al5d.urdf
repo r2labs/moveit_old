@@ -9,14 +9,14 @@
 				<color rgba="0 0 0 1"/>
 			</material>
 		</visual>
-	<collision>
-		<geometry>
-			<cylinder length="0.056" radius="0.0475"/>
-		</geometry>
-		<material name="red">
-			<color rgba="1 0 0 1"/>
-		</material>
-	</collision>
+	  <collision>
+		  <geometry>
+			  <cylinder length="0.056" radius="0.0475"/>
+		  </geometry>
+		  <material name="red">
+			  <color rgba="1 0 0 1"/>
+		  </material>
+	  </collision>
 	</link>
 
 	<joint name="base_joint" type="revolute">
@@ -87,7 +87,7 @@
 			<origin xyz="-0.0145 0 0"/>
 		</visual>	
 		<collision>
-		<geometry>
+		  <geometry>
 				<box size="0.078 0.070 0.034 " />
 			</geometry>
 			<material name="red"/>
@@ -137,7 +137,22 @@
 		</collision>
 	</link>
 
-<joint name="left_gripper" type="prismatic">
+  <joint name="center_point" type="fixed">
+    <parent link="hand"/>
+    <child link="tool_center_point"/>
+    <origin xyz="0.075 0 0" rpy="0 0 0"/>
+  </joint>
+
+  <link name="tool_center_point">
+    <visual>
+      <geometry>
+        <box size = "0.005 0.005 0.005"/>
+      </geometry>
+      <material name="red"/>
+    </visual>
+  </link>
+
+  <joint name="left_gripper" type="fixed">
 		<parent link="hand" />
 		<child link="left_finger" />
 		<!-- y origin is (parent_y/2 - child_y/2) * -1-->
@@ -161,7 +176,7 @@
 		</collision>
 	</link>
 
-	<joint name="right_gripper" type="prismatic">
+	<joint name="right_gripper" type="fixed">
 		<parent link="hand" />
 		<child link="right_finger" />
 		<!-- y origin is parent_y/2 - child_y/2 -->
